@@ -1,7 +1,6 @@
 Freelancer Site
 
-user can add task 
-
+site url --http://even-fl-site.surge.sh/
 
 Currently, two official plugins are available:
 
