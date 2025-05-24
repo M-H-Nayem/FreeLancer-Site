@@ -4,7 +4,7 @@ import { AuthContext } from "../AuthProvider";
 import Theme from "../Theme";
 
 const Navbar = () => {
-  let { user,logOut } = use(AuthContext);
+  let { user, logOut } = use(AuthContext);
   console.log(user);
   let list = (
     <>
@@ -53,15 +53,15 @@ const Navbar = () => {
   let handleLogout = () => {
     console.log("out");
     logOut()
-      .then(res => console.log(res.user))
-    .catch(err=>console.log(err))
-}
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
+  };
 
   // console.log(user.email);
   // console.log(user.displayName);
 
   return (
-    <div className="navbar bg-base-100 shadow-lg px-[5%]">
+    <div className="navbar bg-base-100 shadow-lg md:px-[5%]">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -88,23 +88,28 @@ const Navbar = () => {
             {list}
           </ul>
         </div>
-        <Theme></Theme>
-        <a className=" text-3xl">FL Site</a>
+        <div className="flex gap-2">
+          <Theme></Theme>
+          <a className=" text-3xl">FL Site</a>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex gap-3">{list}</ul>
       </div>
       <div className="navbar-end flex item-center gap-3">
-        <div title={user?.email}>
-
-    
-        {user ? user.displayName : ""} 
-        </div>
+        <div title={user?.email}>{user ? user.displayName : ""}</div>
         <Link to={`/profile`}>
-          <img className="rounded-full w-10 h-10" src={user? user.photoURL :"vite.svg"} title={user?.email} alt="" />
+          <img
+            className="rounded-full w-10 h-10"
+            src={user ? user.photoURL : "vite.svg"}
+            title={user?.email}
+            alt=""
+          />
         </Link>
         {user ? (
-          <button onClick={handleLogout} className="btn">LogOut</button>
+          <button onClick={handleLogout} className="btn">
+            LogOut
+          </button>
         ) : (
           <Link className="btn" to={`/login`}>
             LogIn

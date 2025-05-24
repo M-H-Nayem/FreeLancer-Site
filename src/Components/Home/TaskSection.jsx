@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 
-const TaskSection = ({ tasks }) => {
+const TaskSection = ({ Tasks }) => {
+
+    const sortedTasksDesc = Tasks.sort((a, b) => new Date(a.Dead_line) - new Date(b.Dead_line));
+  let [tasks, setTasks] = useState(sortedTasksDesc);
+  console.log(tasks);
   return (
     <>
-      <h1 className="text-3xl text-center  mt-10">Browse All tasks</h1>
+      <h1 className="text-4xl text-center text-orange-600 font-bold  mt-10">Browse All tasks</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 w-11/12 mx-auto gap-5 my-10">
         {tasks.map((task) => (
           <div key={task._id} className="">

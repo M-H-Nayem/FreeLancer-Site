@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { Link, useLoaderData } from "react-router";
 import { AuthContext } from "../AuthProvider";
-import MyTaskDetails from "./MyTaskDetails";
+
 import { FaEdit, FaEye } from "react-icons/fa";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import Swal from "sweetalert2";
@@ -51,7 +51,7 @@ const MyTask = () => {
       <div>
         {tasks.length > 0 ? (
           <div className="h-screen">
-            <div className="overflow-x-auto  w-10/12 mx-auto m-10  p-5 rounded-2xl bg-gray-300 text-black shadow-[0_0px_50px_rgba(200,255,200,0.5)] ">
+            <div className="overflow-x-auto  w-10/12 mx-auto m-10  p-5 rounded-2xl bg-gray-400 text-black shadow-[0_0px_80px_rgba(255,215,0,0.7)] ">
               <table className="table">
                 <thead>
                   <tr className="text-black text-[22px] font-semibold border-b-1 border-black">

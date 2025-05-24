@@ -28,7 +28,7 @@ const AddTask = () => {
     e.target.reset();
   };
   return (
-    <div className="card bg-[#1E1E1E] w-full max-w-[35%] shrink-0 shadow-2xl mx-auto rounded-2xl my-10 p-5 shadow-[0_0px_50px_rgba(255,255,255,0.5)]">
+    <div className="card bg-[#1E1E1E] w-full max-w-[35%] shrink-0  mx-auto rounded-2xl my-10 p-5 shadow-[0_0px_80px_rgba(255,215,0,0.7)]">
       <h1 className="text-center text-3xl font-bold">Add Your Task</h1>
       <div className="card-body  rounded-2xl">
         <form onSubmit={handleAddUser} className="fieldset">

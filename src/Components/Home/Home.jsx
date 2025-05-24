@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <Slider tasks={tasks}></Slider>
             <Header></Header>
-            <TaskSection tasks={tasks}></TaskSection>
+            <TaskSection Tasks={tasks}></TaskSection>
         </div>
     );
 };

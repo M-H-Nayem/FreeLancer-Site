@@ -40,7 +40,7 @@ const Login = () => {
   };
   return (
     <>
-      <div className="card bg-[#1E1E1E] w-full max-w-lg shrink-0 shadow-2xl mx-auto rounded-2xl mt-10 p-5">
+      <div className="card bg-[#1E1E1E] w-full max-w-lg shrink-0 shadow-[0_0px_80px_rgba(255,215,0,0.7)]xl mx-auto rounded-2xl mt-10 p-5">
         <h1 className="text-center text-3xl font-bold">Log In</h1>
         <div className="card-body  rounded-2xl">
           <form onSubmit={handleLogin} className="fieldset">
