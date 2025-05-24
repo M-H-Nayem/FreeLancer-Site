@@ -3,7 +3,7 @@ import "./Loading.css";
 
 const Loading = () => {
   return (
-      <div className="w-11/12 mx-auto flex justify-center h-screen">
+      <div className="w-11/12 mx-auto  flex justify-center h-screen">
            <div className="loader">
       <div className="loading-text">
         Loading<span className="dot">.</span>

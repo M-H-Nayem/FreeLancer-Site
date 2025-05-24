@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider";
+import Swal from "sweetalert2";
 
 const AddTask = () => {
   let { user } = use(AuthContext);
@@ -23,6 +24,13 @@ const AddTask = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        Swal.fire({
+          // position: "top-end",
+          icon: "success",
+          title: "Your task added sucessfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate("/mytask");
       });
     e.target.reset();

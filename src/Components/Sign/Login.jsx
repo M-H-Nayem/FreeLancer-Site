@@ -2,6 +2,7 @@ import React, { use, useState } from "react";
 import "./Login.css";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   let [error, setError] = useState("");
@@ -24,6 +25,13 @@ const Login = () => {
       .then((result) => {
         navigate(`${location.state ? location.state : "/"}`);
         // console.log(result.user);
+        Swal.fire({
+          // position: "top-end",
+          icon: "success",
+          title: "User Logged in sucessfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((err) => setError("Invalid Email or Password"));
   };
@@ -33,6 +41,13 @@ const Login = () => {
       .then((res) => {
         // console.log(res.user);
         navigate(`${location.state ? location.state : "/"}`);
+        Swal.fire({
+          // position: "top-end",
+          icon: "success",
+          title: "Google Login sucessfully Complete",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       })
       .catch((err) => {
         // console.log(err);
@@ -40,7 +55,7 @@ const Login = () => {
   };
   return (
     <>
-      <div className="card bg-[#1E1E1E] w-full max-w-lg text-white shrink-0 shadow-[0_0px_80px_rgba(255,215,0,0.7)]xl mx-auto rounded-2xl mt-10 p-5">
+      <div className="card bg-[#1E1E1E] w-full max-w-lg text-white shrink-0 shadow-[0_0px_80px_rgba(255,215,0,0.7)]xl mx-auto rounded-2xl my-10 p-5">
         <h1 className="text-center text-3xl font-bold">Log In</h1>
         <div className="card-body  rounded-2xl">
           <form onSubmit={handleLogin} className="fieldset">

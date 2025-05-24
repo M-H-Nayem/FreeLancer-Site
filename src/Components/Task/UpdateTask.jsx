@@ -1,6 +1,8 @@
 import React, { use } from "react";
 import { AuthContext } from "../AuthProvider";
 import { useLoaderData, useNavigate } from "react-router";
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
 
 const UpdateTask = () => {
   let navigate = useNavigate();
@@ -25,7 +27,14 @@ const UpdateTask = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("updated successfylly");
+        // toast("updated successfylly");
+        Swal.fire({
+                      // position: "top-end",
+                      icon: "success",
+                      title: "Task updated successfylly",
+                      showConfirmButton: false,
+                      timer: 1500,
+                    });
         navigate("/mytask");
       });
     e.target.reset();
@@ -141,6 +150,7 @@ const UpdateTask = () => {
           >
             Update
           </button>
+        
         </form>
       </div>
     </div>

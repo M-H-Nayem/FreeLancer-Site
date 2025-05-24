@@ -45,7 +45,7 @@ const Signup = () => {
             setUser({ ...user, displayName: name, photoURL: photo });
             // alert("Thanks, Your SignUp Complete");
             Swal.fire({
-              position: "top-end",
+              // position: "top-end",
               icon: "success",
               title: "Thanks, Your SignUp Complete",
               showConfirmButton: false,

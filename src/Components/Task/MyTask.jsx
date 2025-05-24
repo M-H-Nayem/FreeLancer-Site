@@ -91,7 +91,10 @@ const MyTask = () => {
             </div>
           </div>
         ) : (
-          <div className="w-[35%] mx-auto my-10 p-10 border-2 rounded-2xl bg-gray-300 text-black">
+            
+            <div className="h-screen">
+
+          <div className="w-[35%] mx-auto my-10 p-10 border-2  rounded-2xl bg-gray-300 text-black">
             <h1 className="text-3xl text-center">
               You have not Added any task yet
             </h1>
@@ -101,6 +104,8 @@ const MyTask = () => {
               </p>
             </Link>
           </div>
+
+            </div>
         )}
       </div>
     </>
