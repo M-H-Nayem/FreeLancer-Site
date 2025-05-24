@@ -16,6 +16,7 @@ import PrivateRoute from "./Components/PrivateRoute.jsx";
 import MyTaskData from "./Components/Task/MyTaskData.jsx";
 import UpdateTask from "./Components/Task/UpdateTask.jsx";
 import Loading from "./Components/Loading/Loading.jsx";
+import Home from "./Components/Home/Home.jsx";
 
 let router = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ let router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <p>home</p>,
+        loader: () => fetch("https://server-side-delta-ebon.vercel.app/tasks"),
+         hydrateFallbackElement:<Loading></Loading>,
+        element: <Home></Home>,
       },
       {
         path: "/login",

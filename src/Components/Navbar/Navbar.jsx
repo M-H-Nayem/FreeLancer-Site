@@ -1,6 +1,7 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../AuthProvider";
+import Theme from "../Theme";
 
 const Navbar = () => {
   let { user,logOut } = use(AuthContext);
@@ -87,6 +88,7 @@ const Navbar = () => {
             {list}
           </ul>
         </div>
+        <Theme></Theme>
         <a className=" text-3xl">FL Site</a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -95,7 +97,7 @@ const Navbar = () => {
       <div className="navbar-end flex item-center gap-3">
         <div title={user?.email}>
 
-        {/* {user.email ? user.email : "nai"}  title={user?.displayName} src={user.photoURL? user.photoURL :"vite.svg"} */}
+    
         {user ? user.displayName : ""} 
         </div>
         <Link to={`/profile`}>
