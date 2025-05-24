@@ -40,13 +40,13 @@ let router = createBrowserRouter([
       },
       {
         path: "/browsetask",
-        loader: () => fetch("http://localhost:5000/tasks"),
+        loader: () => fetch("https://server-side-delta-ebon.vercel.app/tasks"),
         hydrateFallbackElement:<Loading></Loading>,
         element: <BrowseTask></BrowseTask>,
       },
       {
         path: "/mytask",
-        loader: () => fetch("http://localhost:5000/tasks"),
+        loader: () => fetch("https://server-side-delta-ebon.vercel.app/tasks"),
         hydrateFallbackElement:<Loading></Loading>,
         element: <PrivateRoute><MyTask></MyTask></PrivateRoute>,
       },
@@ -57,21 +57,21 @@ let router = createBrowserRouter([
       {
         path: "/task/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(`https://server-side-delta-ebon.vercel.app/tasks/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>,
         element: <PrivateRoute><TaskDetails></TaskDetails></PrivateRoute>,
       },
       {
         path: "/task_details/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(`https://server-side-delta-ebon.vercel.app/tasks/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>,
         element: <PrivateRoute><MyTaskData></MyTaskData></PrivateRoute>,
       },
       {
         path: "/update_task/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/tasks/${params.id}`),
+          fetch(`https://server-side-delta-ebon.vercel.app/tasks/${params.id}`),
         hydrateFallbackElement:<Loading></Loading>,
         element: <PrivateRoute><UpdateTask></UpdateTask></PrivateRoute>,
       },

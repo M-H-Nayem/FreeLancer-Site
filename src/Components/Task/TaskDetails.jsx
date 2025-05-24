@@ -7,7 +7,7 @@ const TaskDetails = () => {
   console.log(task);
   return (
     <div key={task._id} className="py-15">
-             <img className="w-50" src="C:\Projects\Assignment-10th\Client-Side\public\undraw_completed-tasks_1j9z.svg" alt="" />
+             <img src="undraw_task-list_qe3p (1).png" alt="" />
     
       <div className="card bg-[#121212] text-primary-content w-[30%] mx-auto h-[300px] shadow-[0_0px_50px_rgba(255,255,255,0.5)]">
         <div className="card-body">

@@ -16,7 +16,7 @@ const UpdateTask = () => {
     let formInfoObject = Object.fromEntries(formData.entries());
     console.log(formInfoObject);
 
-    fetch(`http://localhost:5000/tasks/${task._id}`, {
+    fetch(`https://server-side-delta-ebon.vercel.app/tasks/${task._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

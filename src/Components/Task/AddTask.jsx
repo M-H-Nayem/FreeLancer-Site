@@ -3,9 +3,9 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider";
 
 const AddTask = () => {
-  let { user } = use(AuthContext)
-  let navigate = useNavigate()
-console.log(user);
+  let { user } = use(AuthContext);
+  let navigate = useNavigate();
+  console.log(user);
   let handleAddUser = (e) => {
     console.log("added new task");
     e.preventDefault();
@@ -14,18 +14,18 @@ console.log(user);
     let formInfoObject = Object.fromEntries(formData.entries());
     console.log(formInfoObject);
 
-      fetch(`http://localhost:5000/tasks`, {
-          method: "POST",
-          headers: {
-              "content-type":"application/json"
-          },
-          body:JSON.stringify(formInfoObject)
+    fetch(`https://server-side-delta-ebon.vercel.app/tasks`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(formInfoObject),
     })
       .then((res) => res.json())
-        .then((data) => {
-        navigate('/mytask')
+      .then((data) => {
+        navigate("/mytask");
       });
-    e.target.reset()
+    e.target.reset();
   };
   return (
     <div className="card bg-[#1E1E1E] w-full max-w-[35%] shrink-0 shadow-2xl mx-auto rounded-2xl my-10 p-5 shadow-[0_0px_50px_rgba(255,255,255,0.5)]">
