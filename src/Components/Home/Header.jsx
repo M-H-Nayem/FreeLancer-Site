@@ -8,7 +8,7 @@ const Header = () => {
                 <p className='text-xl'>"Crafting high-quality, custom solutions for your business — on time, on budget, and beyond expectations."</p>
                 <button className='btn bg-yellow-200 w-fit text-black  border-none'>Get Started</button>
             </div>
-            <div><img className='w-full h-[400px]' src="public/undraw_freelancer_vibs.png" alt="" /></div>
+            <div><img className='w-full h-[400px]' src="/undraw_freelancer_vibs.png" alt="" /></div>
         </div>
     );
 };
