@@ -6,15 +6,15 @@ const UpdateTask = () => {
   let navigate = useNavigate();
   let { user } = use(AuthContext);
   let task = useLoaderData();
-  console.log(task);
+  // console.log(task);
 
   let handleUpdateTask = (e) => {
     e.preventDefault();
-    console.log("updated");
+    // console.log("updated");
     let form = e.target;
     let formData = new FormData(form);
     let formInfoObject = Object.fromEntries(formData.entries());
-    console.log(formInfoObject);
+    // console.log(formInfoObject);
 
     fetch(`https://server-side-delta-ebon.vercel.app/tasks/${task._id}`, {
       method: "PUT",
@@ -32,7 +32,7 @@ const UpdateTask = () => {
   };
 
   return (
-    <div className="card bg-[#1E1E1E] w-full max-w-[35%] shrink-0  mx-auto rounded-2xl my-10 p-5 shadow-[0_0px_80px_rgba(255,215,0,0.7)]">
+    <div className="card bg-[#1E1E1E] w-full max-w-[35%] text-white shrink-0  mx-auto rounded-2xl my-10 p-5 shadow-[0_0px_80px_rgba(255,215,0,0.7)]">
       <h1 className="text-center text-3xl font-bold">Update Your Task</h1>
       <div className="card-body  rounded-2xl">
         <form onSubmit={handleUpdateTask} className="fieldset">
@@ -137,7 +137,7 @@ const UpdateTask = () => {
 
           <button
             type="submit"
-            className="btn text-xl bg-[#1c2128] mt-5 border-none "
+            className="btn text-xl text-white  bg-orange-500 mt-5 border-none "
           >
             Update
           </button>

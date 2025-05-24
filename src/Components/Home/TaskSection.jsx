@@ -5,7 +5,7 @@ const TaskSection = ({ Tasks }) => {
 
     const sortedTasksDesc = Tasks.sort((a, b) => new Date(a.Dead_line) - new Date(b.Dead_line));
   let [tasks, setTasks] = useState(sortedTasksDesc);
-  console.log(tasks);
+  // console.log(tasks);
   return (
     <>
       <h1 className="text-4xl text-center text-orange-600 font-bold  mt-10">Browse All tasks</h1>

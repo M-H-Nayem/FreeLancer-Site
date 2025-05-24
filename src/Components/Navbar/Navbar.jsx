@@ -2,10 +2,12 @@ import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../AuthProvider";
 import Theme from "../Theme";
+import ThemeTool from "./ThemeTool";
+import { FaUserAlt } from "react-icons/fa";
 
 const Navbar = () => {
   let { user, logOut } = use(AuthContext);
-  console.log(user);
+  // console.log(user);
   let list = (
     <>
       <li>
@@ -51,10 +53,10 @@ const Navbar = () => {
     </>
   );
   let handleLogout = () => {
-    console.log("out");
+    // console.log("out");
     logOut()
-      .then((res) => console.log(res.user))
-      .catch((err) => console.log(err));
+      .then((res) => {})
+      .catch((err) => {});
   };
 
   // console.log(user.email);
@@ -88,23 +90,28 @@ const Navbar = () => {
             {list}
           </ul>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
+          {/* <ThemeTool></ThemeTool> */}
           <Theme></Theme>
-          <a className=" text-3xl">FL Site</a>
+          <a className=" text-3xl font-bold">FreeLancer Site</a>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 flex gap-3">{list}</ul>
+        <ul className="menu menu-horizontal px-1 flex gap-3 text-xl">{list}</ul>
       </div>
       <div className="navbar-end flex item-center gap-3">
         <div title={user?.email}>{user ? user.displayName : ""}</div>
         <Link to={`/profile`}>
-          <img
-            className="rounded-full w-10 h-10"
-            src={user ? user.photoURL : "vite.svg"}
-            title={user?.email}
-            alt=""
-          />
+          {user ? (
+            <img
+              className="rounded-full w-10 h-10"
+              src={user.photoURL}
+              title={user?.displayName}
+              alt=""
+            />
+          ) : (
+            <FaUserAlt size={30} fill="gold" />
+          )}
         </Link>
         {user ? (
           <button onClick={handleLogout} className="btn">

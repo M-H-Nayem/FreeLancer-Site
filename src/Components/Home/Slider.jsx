@@ -8,25 +8,19 @@ import { FaDownload, FaStar } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
 
 const Slider = ({ tasks }) => {
-  console.log(tasks);
 
   let task1 = tasks[0];
   let task2 = tasks[2];
   let task3 = tasks[4];
-  console.log(task1);
   const words = [
-    "Hello, welcome to my website!",
-    // 'This is a React Typewriter example.',
-    // 'Everything is centered and colored!',
+    "Welcome to Freelancing Site!",
   ];
 
   return (
     <>
       <div className="App text-4xl text-center mt-10 text-orange-500 font-bold">
         <Typewriter
-          //   options={{ strings: ['Hi!', 'I am ChatGPT'], autoStart: true, loop: 5 }}
           words={words}
-          //  strings: ['Hi!', 'I am ChatGPT']
           loop={0}
           cursor
           cursorStyle="_"

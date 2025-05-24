@@ -17,7 +17,7 @@ const Signup = () => {
     let photo = e.target.photo.value;
     let email = e.target.email.value;
     let password = e.target.password.value;
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
 
     if (name.length < 5) {
       setNameError("Name should be more then 5 charecter");
@@ -39,7 +39,7 @@ const Signup = () => {
     }
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
@@ -55,11 +55,11 @@ const Signup = () => {
           })
           .catch((error) => {
             setUser(user);
-            console.log(error);
+            // console.log(error);
           });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -71,9 +71,9 @@ const Signup = () => {
       .catch((error) => {});
   };
 
-  console.log(user);
+  // console.log(user);
   return (
-    <div className="card bg-[#1E1E1E] w-full max-w-lg shrink-0 shadow-[0_0px_80px_rgba(255,215,0,0.7)]xl mx-auto rounded-2xl mt-10 p-5">
+    <div className="card bg-[#1E1E1E] text-white w-full max-w-lg shrink-0 shadow-[0_0px_80px_rgba(255,215,0,0.7)]xl mx-auto rounded-2xl my-10 p-5">
       <h1 className="text-center text-3xl font-bold">Please Sign Up</h1>
       <div className="card-body  rounded-2xl">
         <form onSubmit={handleSubmit} className="fieldset">
@@ -113,7 +113,7 @@ const Signup = () => {
           {passwordError && <p className="text-red-700">{passwordError}</p>}
           <button
             type="submit"
-            className="btn text-xl bg-[#1c2128] mt-5 border-none "
+            className="btn text-xl text-white  bg-orange-400 mt-5 border-none "
           >
             Sign Up
           </button>

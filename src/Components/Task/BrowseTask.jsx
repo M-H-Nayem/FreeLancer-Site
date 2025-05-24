@@ -5,7 +5,6 @@ const BrowseTask = () => {
     let initialTasks = useLoaderData();
     const sortedTasksDesc = initialTasks.sort((a, b) => new Date(a.Dead_line) - new Date(b.Dead_line));
   let [tasks, setTasks] = useState(sortedTasksDesc);
-  console.log(tasks);
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 w-11/12 mx-auto gap-5 my-10">

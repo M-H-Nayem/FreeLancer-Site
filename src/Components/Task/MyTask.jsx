@@ -15,10 +15,9 @@ const MyTask = () => {
   //   console.log(user);
   //   console.log(loadedTasks);
   // console.log(filteredTask);
-  console.log(tasks.length);
+  // console.log(tasks.length);
 
   let handleDelete = (id) => {
-    console.log(id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -39,7 +38,6 @@ const MyTask = () => {
               text: "Your User has been deleted.",
               icon: "success",
             });
-            console.log("after deleted", data);
             let remainingTask = tasks.filter((task) => task._id !== id);
             setTasks(remainingTask);
           });

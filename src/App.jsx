@@ -9,7 +9,7 @@ import { AuthContext } from "./Components/AuthProvider";
 
 function App() {
   let { user } = use(AuthContext);
-  console.log(user);
+  // console.log(user);
   return (
     <>
       <Navbar></Navbar>

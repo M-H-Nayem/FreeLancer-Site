@@ -5,14 +5,14 @@ import { AuthContext } from "../AuthProvider";
 const AddTask = () => {
   let { user } = use(AuthContext);
   let navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
   let handleAddUser = (e) => {
-    console.log("added new task");
+    // console.log("added new task");
     e.preventDefault();
     let form = e.target;
     let formData = new FormData(form);
     let formInfoObject = Object.fromEntries(formData.entries());
-    console.log(formInfoObject);
+    // console.log(formInfoObject);
 
     fetch(`https://server-side-delta-ebon.vercel.app/tasks`, {
       method: "POST",
@@ -28,7 +28,7 @@ const AddTask = () => {
     e.target.reset();
   };
   return (
-    <div className="card bg-[#1E1E1E] w-full max-w-[35%] shrink-0  mx-auto rounded-2xl my-10 p-5 shadow-[0_0px_80px_rgba(255,215,0,0.7)]">
+    <div className="card bg-[#1E1E1E] w-full max-w-[35%] shrink-0 text-white mx-auto rounded-2xl my-10 p-5 shadow-[0_0px_80px_rgba(255,215,0,0.7)]">
       <h1 className="text-center text-3xl font-bold">Add Your Task</h1>
       <div className="card-body  rounded-2xl">
         <form onSubmit={handleAddUser} className="fieldset">
@@ -129,7 +129,7 @@ const AddTask = () => {
 
           <button
             type="submit"
-            className="btn text-xl bg-[#1c2128] mt-5 border-none "
+            className="btn text-xl text-white  bg-orange-300 mt-5 border-none "
           >
             Add Task
           </button>

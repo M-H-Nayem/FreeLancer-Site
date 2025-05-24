@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from "react";
 
 const Theme = () => {
-    const [theme, setTheme] = useState("dark");
-
-   let hamdleTheme = () => {
- const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme); // 👈 this is key
+  const [theme, setTheme] = useState("light");
+  const handleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
   };
-
-  // Apply initial theme
+  // initially set the theme and "listen" for changes to apply them to the HTML tag
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
+    document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
-    <button onClick={hamdleTheme}><input
-      type="checkbox"
-      defaultChecked="checked"
-      className="toggle border-indigo-600 bg-indigo-500 checked:border-white checked:bg-white checked:text-orange-800"
-    /></button>
+    <button
+      onClick={handleTheme}
+    >
+      <input
+        type="checkbox"
+        // defaultChecked="checked"
+        className="toggle border-black bg-black text-white checked:border-white checked:bg-white checked:text-black"
+      />
+    </button>
+
+    // <label className="swap swap-rotate">
+    //   <input onClick={handleTheme} type="checkbox" />
+    //   <div className="swap-on">DARKMODE</div>
+    //   <div className="swap-off">LIGHTMODE</div>
+    // </label>
   );
 };
 

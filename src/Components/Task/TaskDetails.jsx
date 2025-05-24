@@ -4,7 +4,6 @@ import { Link, useLoaderData } from "react-router";
 const TaskDetails = () => {
   //  private route
   let task = useLoaderData();
-  console.log(task);
   return (
     <div key={task._id} className="py-15">
       
