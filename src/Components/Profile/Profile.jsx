@@ -1,6 +1,7 @@
 import React, { use } from 'react';
 import { AuthContext } from '../AuthProvider';
 import { Link } from 'react-router';
+import Loading from '../Loading/Loading';
 
 const Profile = () => {
     let { user } = use(AuthContext)
@@ -15,10 +16,7 @@ const Profile = () => {
           <p className="text-xl font-semibold">User Email :{user.email}</p>
         </div>
       ) : (
-        <p className="h-[400px] text-center mt-10 text-2xl font-bold flex justify-center items-center">
-            No User Logged in . Please  <Link to="/login" > <span className="underline text-blue-400"> Log in</span>
-            </Link>
-        </p>
+        <Loading></Loading>
       )}
     </>
     );
