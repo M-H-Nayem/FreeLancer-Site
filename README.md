@@ -8,15 +8,25 @@ A full-stack web application designed to connect individuals needing tasks done 
 🚀 Live Demo
 [[http://even-fl-site.surge.sh/](http://even-fl-site.surge.sh/)]
 
-📸 Screenshots
 
-![Home](https://i.ibb.co/JwGZjG1/Screenshot-2025-06-25-114023.png)
+## 📸 Screenshots
+
+#### 🖥️ Home Page
+![Screenshot 1](https://i.ibb.co/JwGZjG1L/Screenshot-2025-06-25-114023.png)
 <br/>
-![Add task](https://i.ibb.co/zW1kZ3q/Screenshot-2025-06-25-114036.png)
+
+#### 📄 Team Work
+![Screenshot 2](https://i.ibb.co/zW1kZ3qn/Screenshot-2025-06-25-114036.png)
 <br/>
-![Browse task](https://i.ibb.co/PG2MfT7/Screenshot-2025-06-25-114059.png)
+
+#### 🛠️ Add Task
+![Screenshot 3](https://i.ibb.co/PG2MfT7D/Screenshot-2025-06-25-114059.png)
 <br/>
-![My task](https://i.ibb.co/cK6DNCJ/Screenshot-2025-06-25-114119.png)
+
+#### ⚙️ My Added Task List
+![Screenshot 4](https://i.ibb.co/cK6DNCJp/Screenshot-2025-06-25-114119.png)
+<br/>
+
 
 🌟 About the Project
 This project is a dynamic Freelancer Task Management Platform that acts as a bridge between clients and freelancers. It provides a seamless environment where clients can post various tasks, and freelancers can browse these tasks and place bids to offer their services. The platform also offers a dedicated "My Tasks" section for users to manage their posted or bid-on tasks.
