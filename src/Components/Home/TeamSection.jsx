@@ -2,7 +2,7 @@ import React from "react";
 
 const TeamSection = () => {
   return (
-    <div className="bg-[#ffcda3] my-20">
+    <div className="bg-[#ffcda3] my-20 w-11/12 mx-auto rounded-2xl">
       <div className="w-11/12 mx-auto flex gap-10 items-center justify-between rounded-2xl">
         <div className="p-20">
           <img

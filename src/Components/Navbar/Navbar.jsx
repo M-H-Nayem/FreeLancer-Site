@@ -1,9 +1,9 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../AuthProvider";
-import Theme from "../Theme";
-import ThemeTool from "./ThemeTool";
 import { FaUserAlt } from "react-icons/fa";
+import img from "../../assets/fl.png";
+import ThemeCon from "../ThemeCon";
 
 const Navbar = () => {
   let { user, logOut } = use(AuthContext);
@@ -20,7 +20,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to="/addtask"
           className={({ isActive }) =>
@@ -29,7 +29,7 @@ const Navbar = () => {
         >
           Add Task
         </NavLink>
-      </li>
+      </li> */}
       <li>
         <NavLink
           to="/browsetask"
@@ -40,7 +40,7 @@ const Navbar = () => {
           Browse task
         </NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink
           to="/mytask"
           className={({ isActive }) =>
@@ -49,9 +49,57 @@ const Navbar = () => {
         >
           My Posted Task
         </NavLink>
-      </li>
+      </li> */}
     </>
   );
+
+  if (user) {
+    list = (
+      <>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? "active-link bg-blue-300" : ""
+            }
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/browsetask"
+            className={({ isActive }) =>
+              isActive ? "active-link bg-blue-300" : ""
+            }
+          >
+            Browse task
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/addtask"
+            className={({ isActive }) =>
+              isActive ? "active-link bg-blue-300" : ""
+            }
+          >
+            Add Task
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/mytask"
+            className={({ isActive }) =>
+              isActive ? "active-link bg-blue-300" : ""
+            }
+          >
+            My Posted Task
+          </NavLink>
+        </li>
+      </>
+    );
+  }
+
   let handleLogout = () => {
     // console.log("out");
     logOut()
@@ -63,7 +111,7 @@ const Navbar = () => {
   // console.log(user.displayName);
 
   return (
-    <div className="navbar bg-base-100 shadow-lg md:px-[5%]">
+    <div className="navbar bg-base-100 shadow-lg md:px-[5%] sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -91,9 +139,16 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex gap-2 items-center">
-          {/* <ThemeTool></ThemeTool> */}
-          <Theme></Theme>
-          <a className=" text-3xl font-bold">FreeLancer Site</a>
+          <ThemeCon></ThemeCon>
+          <Link className="flex">
+            <img className="w-10" src={img} alt="" />
+            <h1
+              to={"/"}
+              className=" text-3xl font-bold  bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
+            >
+              FreeLancer Site
+            </h1>
+          </Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -118,13 +173,15 @@ const Navbar = () => {
             LogOut
           </button>
         ) : (
-          <Link className="btn" to={`/login`}>
-            LogIn
-          </Link>
+          <>
+            <Link className="btn" to={`/login`}>
+              LogIn
+            </Link>
+            <Link className="btn" to={`/signup`}>
+              SignUP
+            </Link>
+          </>
         )}
-        <Link className="btn" to={`/signup`}>
-          SignUP
-        </Link>
       </div>
     </div>
   );

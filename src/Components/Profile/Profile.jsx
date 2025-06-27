@@ -16,7 +16,7 @@ const Profile = () => {
           <p className="text-xl font-semibold">User Email :{user.email}</p>
         </div>
       ) : (
-        <Loading></Loading>
+        <h1 className='m-15 p-25 text-4xl text-center w-5/12 mx-auto bg-white rounded-xl'>No user</h1>
       )}
     </>
     );

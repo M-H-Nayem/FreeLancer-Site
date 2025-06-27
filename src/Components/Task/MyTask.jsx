@@ -35,7 +35,7 @@ const MyTask = () => {
           .then((data) => {
             Swal.fire({
               title: "Deleted!",
-              text: "Your User has been deleted.",
+              text: "Your Task has been deleted.",
               icon: "success",
             });
             let remainingTask = tasks.filter((task) => task._id !== id);
