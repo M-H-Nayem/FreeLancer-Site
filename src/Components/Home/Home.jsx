@@ -4,15 +4,16 @@ import TaskSection from './TaskSection';
 import { useLoaderData } from 'react-router';
 import Slider from './Slider';
 import TeamSection from './TeamSection';
+import FAQ from '../FAQ/FAQ';
 
 const Home = () => {
     let tasks = useLoaderData()
     return (
         <div>
-            <Slider tasks={tasks}></Slider>
-            <Header></Header>
+            <Header></Header>  
             <TaskSection Tasks={tasks}></TaskSection>
             <TeamSection></TeamSection>
+            <FAQ></FAQ>
         </div>
     );
 };

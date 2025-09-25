@@ -1,189 +1,189 @@
-import React, { use } from "react";
-import { Link, NavLink } from "react-router";
+import React, { useState, use } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import { FaUserAlt } from "react-icons/fa";
 import img from "../../assets/fl.png";
-import ThemeCon from "../ThemeCon";
+import { FiMenu, FiX } from "react-icons/fi"; // FiX icon for closing the menu
 
 const Navbar = () => {
   let { user, logOut } = use(AuthContext);
-  // console.log(user);
-  let list = (
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleLogout = () => {
+    logOut().then(() => {}).catch(() => {});
+  };
+
+  const navLinks = (
     <>
-      <li>
+      <li className="p-2">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "active-link bg-blue-300" : ""
+            `hover:text-blue-500 transition-colors duration-300 ${isActive ? "text-green-500 font-bold  border-b-1" : "text-gray-300"}`
           }
+          onClick={() => setIsMenuOpen(false)}
         >
           Home
         </NavLink>
       </li>
-      {/* <li>
+      <li className="p-2">
         <NavLink
-          to="/addtask"
+          to="/browse-task"
           className={({ isActive }) =>
-            isActive ? "active-link bg-blue-300" : ""
+            `hover:text-blue-500 transition-colors duration-300 ${isActive ? "text-green-500 font-bold border-b-1" : "text-gray-300"}`
           }
+          onClick={() => setIsMenuOpen(false)}
         >
-          Add Task
-        </NavLink>
-      </li> */}
-      <li>
-        <NavLink
-          to="/browsetask"
-          className={({ isActive }) =>
-            isActive ? "active-link bg-blue-300" : ""
-          }
-        >
-          Browse task
+          Browse Task
         </NavLink>
       </li>
-      {/* <li>
-        <NavLink
-          to="/mytask"
-          className={({ isActive }) =>
-            isActive ? "active-link bg-blue-300" : ""
-          }
-        >
-          My Posted Task
-        </NavLink>
-      </li> */}
+      {user && (
+        <>
+          <li className="p-2">
+            <NavLink
+              to="/add-task"
+              className={({ isActive }) =>
+                `hover:text-blue-500 transition-colors duration-300 ${isActive ? "text-green-500 font-bold border-b-1" : "text-gray-300"}`
+              }
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Add Task
+            </NavLink>
+          </li>
+          <li className="p-2">
+            <NavLink
+              to="/my-task"
+              className={({ isActive }) =>
+                `hover:text-blue-500 transition-colors duration-300 ${isActive ? "text-green-500 font-bold border-b-1" : "text-gray-300"}`
+              }
+              onClick={() => setIsMenuOpen(false)}
+            >
+              My Posted Task
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
-  if (user) {
-    list = (
-      <>
-        <li>
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              isActive ? "active-link bg-blue-300" : ""
-            }
-          >
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/browsetask"
-            className={({ isActive }) =>
-              isActive ? "active-link bg-blue-300" : ""
-            }
-          >
-            Browse task
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/addtask"
-            className={({ isActive }) =>
-              isActive ? "active-link bg-blue-300" : ""
-            }
-          >
-            Add Task
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/mytask"
-            className={({ isActive }) =>
-              isActive ? "active-link bg-blue-300" : ""
-            }
-          >
-            My Posted Task
-          </NavLink>
-        </li>
-      </>
-    );
-  }
-
-  let handleLogout = () => {
-    // console.log("out");
-    logOut()
-      .then((res) => {})
-      .catch((err) => {});
-  };
-
-  // console.log(user.email);
-  // console.log(user.displayName);
+  const authButtons = user ? (
+    <>
+      <div className="flex items-center gap-3">
+        <div title={user?.email} className="hidden lg:block text-sm text-gray-300">
+          {user.displayName}
+        </div>
+        <Link to="/profile">
+          <img
+            className="rounded-full w-10 h-10 border-2 border-blue-500 hover:border-blue-300 transition-colors duration-300"
+            src={user.photoURL}
+            title={user?.displayName}
+            alt="User Profile"
+          />
+        </Link>
+        <button
+          onClick={handleLogout}
+          className="btn bg-red-600 text-white border-none hover:bg-red-700 transition-colors hidden lg:block"
+        >
+          LogOut
+        </button>
+      </div>
+    </>
+  ) : (
+    <>
+      <Link className="btn bg-gradient-to-r from-blue-800 to-green-700 text-white  border-none hover:bg-green-700 transition-colors" to="/login">
+        LogIn
+      </Link>
+      <Link className="btn bg-gradient-to-r from-blue-800 to-green-700 text-white  border-none hover:bg-green-700 transition-colors " to="/signup">
+        Sign Up
+      </Link>
+    </>
+  );
 
   return (
-    <div className="navbar bg-base-100 shadow-lg md:px-[5%] sticky top-0 z-10">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          >
-            {list}
-          </ul>
-        </div>
-        <div className="flex gap-2 items-center">
-          <ThemeCon></ThemeCon>
-          <Link className="flex">
-            <img className="w-10" src={img} alt="" />
-            <h1
-              to={"/"}
-              className=" text-3xl font-bold  bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 bg-clip-text text-transparent"
-            >
+    <nav className="bg-gray-800 text-white shadow-lg sticky top-0 z-50 w-full">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Left Section: Logo & Site Name */}
+        <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center">
+            <img className="w-10" src={img} alt="Freelancer Site Logo" />
+            <span className="text-xl md:text-2xl font-bold ml-2 hidden md:block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
               FreeLancer Site
-            </h1>
+            </span>
           </Link>
         </div>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 flex gap-3 text-xl">{list}</ul>
-      </div>
-      <div className="navbar-end flex item-center gap-3">
-        <div title={user?.email}>{user ? user.displayName : ""}</div>
-        <Link to={`/profile`}>
-          {user ? (
-            <img
-              className="rounded-full w-10 h-10"
-              src={user.photoURL}
-              title={user?.displayName}
-              alt=""
-            />
-          ) : (
-            <FaUserAlt size={30} fill="gold" />
-          )}
-        </Link>
-        {user ? (
-          <button onClick={handleLogout} className="btn">
-            LogOut
+
+        {/* Center Section: Main Nav Links (for large screens) */}
+        <div className="hidden lg:flex">
+          <ul className="flex items-center justify-center gap-4 text-lg">
+            {navLinks}
+          </ul>
+        </div>
+
+        {/* Right Section: Auth Buttons & Mobile Menu Icon */}
+        <div className="flex items-center gap-3">
+          <div className="hidden lg:flex gap-3">
+            {authButtons}
+          </div>
+
+          {/* Mobile Menu Icon */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="btn btn-ghost p-2 lg:hidden"
+          >
+            {isMenuOpen ? (
+              <FiX className="text-2xl text-white" />
+            ) : (
+              <FiMenu className="text-2xl text-white" />
+            )}
           </button>
-        ) : (
-          <>
-            <Link className="btn" to={`/login`}>
-              LogIn
-            </Link>
-            <Link className="btn" to={`/signup`}>
-              SignUP
-            </Link>
-          </>
-        )}
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Menu Content */}
+      <div className={`lg:hidden bg-gray-900 transition-all duration-300 ease-in-out ${isMenuOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0 overflow-hidden"}`}>
+        <ul className="flex flex-col items-center space-y-4 text-lg">
+          {navLinks}
+          <div className="border-t border-gray-700 w-full mt-3 pt-4 flex flex-col items-center space-y-3 px-3">
+            {user ? (
+              <>
+                <div className="flex items-center flex-col space-y-2">
+                  <Link to="/profile">
+                    <img
+                      className="rounded-full w-10 h-10 border-2 border-blue-500"
+                      src={user.photoURL}
+                      title={user?.displayName}
+                      alt="User Profile"
+                    />
+                  </Link>
+                  <span className="text-base text-gray-400">{user.displayName}</span>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="btn bg-red-600 text-white border-none hover:bg-red-700 w-full"
+                >
+                  LogOut
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  className="btn bg-gradient-to-r from-blue-800 to-green-700 text-white border-none hover:bg-blue-700 w-full"
+                  to="/login"
+                >
+                  LogIn
+                </Link>
+                <Link
+                  className="btn bg-gradient-to-r from-blue-800 to-green-700 text-white border-none hover:bg-blue-700 w-full"
+                  to="/signup"
+                >
+                  Sign Up
+                </Link>
+              </>
+            )}
+          </div>
+        </ul>
+      </div>
+    </nav>
   );
 };
 

@@ -13,9 +13,9 @@ function App() {
   return (
     <>
       <Navbar></Navbar>
-      {/* <Loading></Loading> */}
-
-      <Outlet></Outlet>
+      <div className="min-h-[90vh]">
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </>
   );

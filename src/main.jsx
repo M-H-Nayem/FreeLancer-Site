@@ -38,17 +38,17 @@ let router = createBrowserRouter([
         element: <Signup></Signup>,
       },
       {
-        path: "/addtask",
+        path: "/add-task",
         element: <PrivateRoute><AddTask></AddTask></PrivateRoute>,
       },
       {
-        path: "/browsetask",
+        path: "/browse-task",
         loader: () => fetch("https://server-side-delta-ebon.vercel.app/tasks"),
         hydrateFallbackElement:<Loading></Loading>,
         element: <BrowseTask></BrowseTask>,
       },
       {
-        path: "/mytask",
+        path: "/my-task",
         loader: () => fetch("https://server-side-delta-ebon.vercel.app/tasks"),
         hydrateFallbackElement:<Loading></Loading>,
         element: <PrivateRoute><MyTask></MyTask></PrivateRoute>,
